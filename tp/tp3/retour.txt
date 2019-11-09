@@ -1,0 +1,16 @@
+
+
+# tri_selection.adb
+
+* Dans Min_Index_Tableau, Min est un nom mal choisi !
+* Ce sous-programme ne compile pas !  Il aurait fallu le compiler (et
+  l'exécuter) avant de passer aux suivants.
+* Dans Permuter, Min et Index mal choisis, plutôt Index1, Index2
+* Le sous-programme qui tri ne doit pas être interactif (ni Get, ni Put) !
+* Tri_Tab ?
+* Pourquoi un Répéter ?
+
+
+# evaluer_alea.adb
+
+* Non rendu.

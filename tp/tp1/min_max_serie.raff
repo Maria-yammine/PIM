@@ -1,0 +1,52 @@
+R0 : Afficher le plus petit et le plus grand élément d'une série d'entiers naturels.
+
+R1 : Comment "Afficher le plus petit et le plus grand élément d'une série d'entiers naturels"
+Afficher la consigne
+Saisir un premier entier
+Si l'entier n'est pas une valeur de la série 
+	Ecrire ('Pas de valeurs dans la série')
+Sinon Si l'entier est le premier élément de la série 
+	Initialiser min et max avec le premier entier
+	Traiter les autres éléments de la série 
+Afficher le min et le max
+Fin Si
+
+R2 : Comment "Afficher la consigne"
+Ecrire ('Saisir les valeurs de la série (-1 pour terminer) :')
+ 
+R2 : Comment "Saisir un premier entier"
+Lire (Entier)
+
+R2 : Comment "Initialiser min et max avec le premier entier"
+Faire min = entier
+Faire max = entier
+
+R2 : Comment "Traiter les autres éléments de la série"
+Saisir un nouvel entier
+Tant que l'entier est une valeur de la série
+	Mettre à jour le min et le max
+	Saisir un nouvel entier
+Fin Tant que
+
+R3 : Comment "Saisir un nouvel entier"
+Lire (Entier)
+
+R3 : Comment "l'entier est une valeur de la série"
+Entier != 0
+
+R3 : Comment "Mettre à jour le min et le max"
+Si Entier > Max Alors 
+	Mettre à jour le max avec entier
+Sinon Si Entier < Min Alors
+	Mettre à jour le min avec entier
+Sinon Passer
+FinSi
+
+R3 : Comment "Saisir un nouvel entier"
+Lire (Entier)
+
+R4 : Comment "Mettre à jour le max avec entier"
+max = entier
+
+R4 : Comment "Mettre à jour le min avec entier"
+min = entier

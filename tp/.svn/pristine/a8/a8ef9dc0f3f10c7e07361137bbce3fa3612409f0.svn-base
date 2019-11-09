@@ -1,0 +1,77 @@
+% Validation de http://cregut.svn.enseeiht.fr/2019/1sn/pim/tps/myammine/pr1
+% Run on 2019-10-13 21:31:00.057123
+
+# Respect des fichiers fournis
+
+* Fichier alea.adb non modifié... ok
+* Fichier alea.ads non modifié... ok
+* Fichier exemple_alea.adb non modifié... ok
+* Fichier multiplications.adb modifié... ok
+* Fichier LISEZ-MOI.txt modifié... ok
+* Running gnatclean... ok
+* Compilation de multiplications.adb... ok
+
+  | x86_64-linux-gnu-gcc-8 -c -gnatwa -gnata -g multiplications.adb
+  | x86_64-linux-gnu-gcc-8 -c -gnatwa -gnata -g alea.adb
+  | x86_64-linux-gnu-gnatbind-8 -x multiplications.ali
+  | x86_64-linux-gnu-gnatlink-8 multiplications.ali -g
+
+* ./multiplications < "5 1 2 3 4 1 6 7 8 9 1 n"... ok
+
+  | Table Ã  rÃ©viser : 
+  | (M1) 5 * 7 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M2) 5 * 1 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M3) 5 * 9 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M4) 5 * 2 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M5) 5 * 2 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M6) 5 * 5 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M7) 5 * 10 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M8) 5 * 2 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M9) 5 * 8 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | 
+  | (M10) 5 * 6 ?
+  | Votre rÃ©ponse : 
+  | Mauvaise rÃ©ponse
+  | 
+  | Tout est faux ! Volontaire ?
+  | 
+  | Des hÃ©sitations sur la table de 7 : 0.000002000 secondes contre 0.000000100 en moyenne. Il faut certainement la rÃ©viser.
+  | 
+  | Voulez-vous continuer Ã  vous entraÃ®ner o/n ? 
+
+* Running gnatclean... ok

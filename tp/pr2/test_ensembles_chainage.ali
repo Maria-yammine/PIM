@@ -1,0 +1,60 @@
+V "GNAT Lib v7"
+M P W=b
+A -gnata
+A -g
+A -gnatwa
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV SPARK_05
+
+U test_ensembles_chainage%b  test_ensembles_chainage.adb  0b6e6d6a NE OO SU
+Z ada%s			ada.ads			ada.ali
+Z ada.unchecked_deallocation%s
+W ensembles_chainage%s	ensembles_chainage.adb	ensembles_chainage.ali
+W system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20170106103348 76789da1 ada%s
+D a-unccon.ads		20170106103348 31484697 ada.unchecked_conversion%s
+D a-uncdea.ads		20070406091342 f15a5ed1 ada.unchecked_deallocation%s
+D ensembles_chainage.ads  20191109115059 42b1abe8 ensembles_chainage%s
+D ensembles_chainage.adb  20191109115443 28d78cc6 ensembles_chainage%b
+D system.ads		20170510173650 4635ec04 system%s
+D s-assert.ads		20140225151544 cd8d2c94 system.assertions%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-stalib.ads		20151112104907 09bd3940 system.standard_library%s
+D test_ensembles_chainage.adb  20191109121024 49dfc682 test_ensembles_chainage%b
+X 4 ensembles_chainage.ads
+4+10 T_Element 10|7r37
+6k9*Ensembles_Chainage 70e23 10|1w6 7r17
+8P10 T_Ensemble 10|11r47[6] 19r22[6] 36r16[6] 54r16[6]
+13U15 Initialiser 10|13s9[6] 21s9[6]
+19U15 Detruire 10|27s9[6] 32s9[6] 50s9[6] 62s9[6]
+25V14 Est_Vide{boolean} 10|22s24[6] 25s28[6] 30s28[6] 39s28[6] 61s24[6]
+30V14 Taille{integer} 10|40s24[6] 44s24[6] 48s24[6] 59s24[6]
+36V14 Est_Present{boolean} 10|43s24[6] 47s24[6] 58s28[6]
+42U15 Ajouter 10|14s9[6] 15s9[6] 24s9[6] 42s9[6] 46s9[6]
+50U15 Supprimer 10|57s9[6] 60s9[6]
+X 10 test_ensembles_chainage.adb
+4U11*Test_Ensembles_Chainage 4b11 69l5 69t28
+6K13 Ensemble_Characteres[4|6] 8r9
+11U15 Initialiser_avec_M_A 11b15 11<37 16l9 16t29 29s9 38s9 56s9
+11p37 Ens{4|8P10[6]} 13m22 14m18 15m18
+18U15 Tester_Est_Vide 18b15 33l9 33t24 66s5
+19p9 Ens1{4|8P10[6]} 21m22 21r22 22r34 24m18 24r18 25r38 27m19 27r19
+19p15 Ens2{4|8P10[6]} 29m31 29r31 30r38 32m19 32r19
+35U15 Tester_Ajouter 35b15 51l9 51t23 67s5
+36p9 Ens1{4|8P10[6]} 38m31 38r31 39r38 40r32 42m18 42r18 43r36 44r32 46m18
+. 46r18 47r36 48r32 50m19 50r19
+53U15 Tester_Supprimer 53b15 63l9 63t25 68s5
+54p9 Ens1{4|8P10[6]} 56m31 56r31 57m20 57r20 58r40 59r32 60m20 60r20 61r34
+. 62m19 62r19
+

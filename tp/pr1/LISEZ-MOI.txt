@@ -1,0 +1,209 @@
+Nom    : YAMMINE 
+Prénom : Maria-Estella
+Groupe : E
+--------------------------------------------------------------------------------
+
+
+Consigne : Dans ce fichier, il faut répondre à la place des "..." et sur les
+lignes qui les suivent.  Le texte déjà écrit doit être conservé !
+
+=====[ Temps passé ]============================================================
+
+Ces informations de temps sont demandées à titre indicatif et ne sont pas
+prises en compte dans la notation du projet.
+
+Toutes les durées sont à saisir en heures.  Par exemple, si vous avez passé
+1h45, il faudra indiquer 1.75.  Si vous avez passé 2h30, il faudra indiquer
+2.5.
+
+Temps total passé sur ce mini-projet (en h) : 6.00
+Temps passé sur les raffinages (en h) : 2.50
+
+=====[ Raffinages ]=============================================================
+
+-- Ne donner que les niveaux de raffinages qui sont informatifs.   Il est
+-- généralement inutile de donner le dernier niveau de raffinage s'il ne
+-- contient pas d'étapes non élémentaires.
+
+
+R0 : "Réviser les tables de multiplications"
+
+
+Exemples : On ne donnera pas d'exemples d'utilisation
+
+
+R1 : Comment "Réviser les tables de multiplications"
+	Répéter 
+		Demander à l'utilisateur de choisir la table qu'il souhaite réviser
+		{ Table >= 1 Et Table =< 10 }
+		Réviser la table choisie						Erreur, Bonne_rep, Table_a_rev : out Entier 	Temps_max : out, Réel   
+		Afficher un message en fonction du nombre d'erreurs commises
+		Conseiller une table à revoir 
+		Demander à l'utilisateur s'il veut continuer ou s'arrêter       	Arreter : out Boléen
+	Jusqu'à Arreter
+
+*************************************************************************************************************************************************************************
+
+R2 : Comment "Demander à l'utilisateur de choisir la table qu'il souhaite réviser"
+	Répéter
+		Ecrire ("Table à réviser :")
+		Lire Table								            Table : in Entier
+		Expliquer à l'utilisateur pourquoi on lui redemande une table à réviser
+	Jusqu_a (Table =< 10 Et Table >=1) 
+
+R2 : Comment "Réviser la table choisie"
+	Initialiser le nombre d'erreurs, de bonnes réponses et le temps maximal
+	Pour Multiplication allant de 1 à 10 Faire				
+		Choisir Nombre_alea entre 1 et 10					Nombre_alea : in Entier		
+		Proposer la multiplication 
+		Saisir la réponse de la multiplication proposée
+		Dire si la réponse saisie est bonne ou mauvaise
+		Conseiller à l'utilisateur la table qui a demandé un maximum de temps de réponse
+	Fin_Pour 
+
+R2 : Comment "Afficher un message en fonction du nombre d'erreurs commises"
+	Selon Erreur Dans
+		    0      =>  Ecrire ("Aucune erreur. Excellent !")
+	        1      =>  Ecrire ("Une seule erreur. Très bien.")
+	        10     =>  Ecrire ("Tout est faux ! Volontaire ?")
+	        2..5   =>  Ecrire (Erreur, "erreurs. Il faut encore travailler la table de", Table)
+	        6..9   =>  Ecrire ("Seulement", Bonne_rep, "bonnes réponses. Il faut apprendre la table de", Table)
+            autre  =>  pragma Assert (False)
+	Fin_Selon
+
+R2 : Comment "Conseiller une table à revoir"
+	Calculer la moyenne de la somme des délais					Moyenne : in Réel
+	Si Temps_max > Moyenne Alors
+		Ecrire ("Des hésitations sur la table de", table_a_rev, ":", temps_max, "secondes contre", Moyenne, "en moyenne. Il faut certainement la réviser")
+    Sinon 
+        Rien
+	Fin_Si	
+
+R2 : Comment "Demander à l'utilisateur s'il veut continuer ou s'arrêter"
+	Ecrire ("Voulez-vous continuer à vous entraîner o/n ?")
+	Lire (Choix)									            Choix : Out Character
+	Arreter <-- Choix = 'o' ou Choix = 'O'
+
+********************************************************************************************************************************************************************
+
+R3 : Comment "Expliquer à l'utilisateur pourquoi on lui redemande une table à réviser"
+    Si Table < 1 ou Table > 10 Alors
+			Ecrire ("La table choisie doit être entre 1 et 10")
+    Sinon 
+            Rien
+    Fin_Si
+
+R3 : Comment "Initialiser le nombre d'erreurs, de bonnes réponses et le temps maximal"
+	Erreur <-- 0
+	Bonne_rep <-- 10 - Erreur
+	Temps_max <-- 0
+
+R3 : Comment "Proposer la multiplication"
+	Ecrire ("(M", Multiplication, ")", Table, "*", Nombre_alea, "?")
+
+R3 : Comment "Saisir la réponse de la multiplication proposée"
+    Initialiser la somme des délais à 0	                    Somme : out Réel
+    Lire (Reponse) 									        Reponse : out Réel
+	Calculer Delai de la réponse 							Delai : in Réel
+
+R3 : Comment "Dire si la réponse saisie est bonne ou mauvaise"
+	Si (Reponse = Table * Nombre_alea) Alors
+		Ecrire ("Bravo !)
+	Sinon 
+		Ecrire ("Mauvaise réponse.")
+		Erreur <-- Erreur + 1
+        Bonne_rep <-- Bonne_rep - 1 
+	Fin_Si
+
+R3 : Comment "Conseiller à l'utilisateur la table qui a demandé un maximum de temps de réponse" 
+	Sommer les délais                                                       	
+	Si Temps_max < Delai Alors
+		Temps_max <-- Delai
+		Table_a_rev <-- Nombre_alea						Table_a_rev : in Entier
+        Sinon 
+       		 Rien
+	Fin_Si
+
+R3 : Comment "Calculer la moyenne de la somme des délais"
+	Moyenne <-- Somme / 10
+
+=====[ Test ]===================================================================
+
+* Expliquer rapidement comment vous avez testé votre programme.
+
+En reprenant le sujet du mini-projet, j'ai relu les différents cas auxquels pourrait être confronté l'utilisateur et j'ai executé mon programme en testant ces 
+différents cas. Dans un premier temps, j'ai lancé mon programme pour vérifier si les espaces et sauts de lignes étaient à leur place et quand ce n'était pas le cas,
+je modifiais le programme au fur et à mesure. Ensuite, j'ai testé les différents cas : pas d'erreurs, une seule erreur, tout faux, moitié de bonnes réponses ou 
+moitié de mauvaises réponses pour m'assurer que le code renvoyait le bon message en fonction du cas. Puis, au cours des divers tests lancés, je faisais exprès de
+rester un peu plus longtemps sur une table particulière que sur les autres pour vérifier aussi que la table conseillée à la fin en fonction du temps est la bonne.
+De plus, j'ai testé les cas de figure où l'utilisateur demandait de réviser une table non comprise entre 1 et 10 en demandant une table supérieure à 10 ou 
+inférieure à 1, pour m'assurer que le message renvoyé était le bon. Enfin, j'ai fini par tester les deux cas de figures qui se présentent à l'utilisateur en fin de
+test, en essayant le "o" (ou "O") d'abord et en vérifiant que le test se relancait et puis en essayant le "n" (ou "N") et en vérifiant que le programme s'arrêtait.
+
+
+=====[ Difficultés ]============================================================
+
+* Indiquer les difficultés rencontrées
+
+Lors de la compilation du programme, j'ai rencontré de petits problèmes notamment avec l'utilisation des Put, Put_Line, Skip_Line et New_Line. De plus, à cause de
+certains oublis (de points-virgules, de fin de boucles comme le "exit when ..."), je n'arrivais pas toujours à compiler le code. Enfin, j'ai dû corriger certaines
+erreurs de programmation, comme le type de certaines variables (de type Float à type Duration) ou quelques lignes qui étaient fausses dans ma boucle "Selon".
+
+
+=====[ Questions ]==============================================================
+
+Pour les questions suivantes, il ne s'agit pas de modifier le programme écrit
+mais d'expliquer comment il faudrait le modifier pour prendre en compte les
+évolutions envisagées.
+
+
+* Au lieu de poser 10 questions, on veut en poser 15. Comment faire ?
+
+Pour poser 15 questions au lieu de 10, il faudrait modifier la boucle For en écrivant (For Multiplication in 1..15 loop) plutôt. 
+
+* On veut afficher "Bien" si l'utilisateur n'a commis que 2 ou 3 erreurs.
+  Comment modifier le programme ?
+
+Je rajouterai une ligne dans ma boucle Case et j'en modifierai une autre :
+	case Erreur is
+		...
+		when 2..3  => Put_Line ("Bien");
+		when 4..5  => Put (" erreurs. Il faut encore travailler la table de");
+            		Put_Line(Integer'Image(Table));
+            		New_Line;
+		...
+	end case;
+
+* On veut donner la possibilité à l'utilisateur d'abandonner le programmes en
+  tapant 0 quand on lui demande le résultat d'une multiplication. Quelles
+  modifications faut-il alors faire au programme ? 
+
+Je rajouterai une condition Si .. Alors après la saisie de la réponse : 
+	Get (Reponse);
+	If Reponse = 0 Then
+		Goto end Multiplications;
+	End if;
+
+On peut aussi rajouter une boucle Tant_que avec une condition telle que (i<10 or Reponse /= 0) et faire tourner la boucle, l'indice i représentant un compteur des mutliplications qui serait incrémenté de +1 à chaque tour de boucle.
+
+Enfin, on pourrait rajouter une condition d'arrêt de boucle avec un "exit when Reponse = 0" après le Get(Reponse).
+
+* À la fin d'une série de questions, on veut proposer à l'utilisateur de
+  réviser la table pour laquelle l'utilisateur a commis le plus d'erreurs.
+  Par exemple, s'il se trompe pour 3 * 5, on compte une erreur pour 3 et
+  une erreur pour 5.  Comment faire ?
+
+Dans un premier temps, on pourrait utiliser un tableau à 10 indices, et pour une multiplication A * B (calcul généré avec 2 nombres aléatoires), en cas d'erreurs, 
+on ferait (+1) dans Tableau.[A] et (+1) dans Tableau.[B], de sorte à avoir un compteur pour chaque multiiplication. Après, on vérifie quelle entrée du tableau a la
+valeur la plus grande.
+Dans un deuxième temps, le programme dira à l'utilisateur qu'il a commis un maximum d'erreurs pour une entrée donnée et lui demandera s'il voudra réviser la table 
+concernée par cette entrée. Par la suite, le programme déjà écrit sera lancé mais avec la table en question.
+
+
+=====[ Remarques diverses ]=====================================================
+
+Cette rubrique est libre (et ne sera pas prise en compte dans la notation).
+
+...
+
+--------------------------------------------------------------------------------

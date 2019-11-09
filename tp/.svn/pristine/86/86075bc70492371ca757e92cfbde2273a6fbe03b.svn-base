@@ -1,0 +1,13 @@
+
+
+# dates.adb :
+
+* Pour bien calculer le nombre de jours d'un mois, il faut aussi connaître
+  l'année considérée (à cause de Février).
+* Lendemain : juste commencé... mais ne commence pas très bien.  Ne peut-on
+  pas s'appuyer sur le sous-programme déjà écrit.
+
+
+# puissance.adb :
+
+* Non rendu.

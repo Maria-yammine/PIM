@@ -5,7 +5,7 @@ with Ada.Unchecked_Deallocation;
 
 package body Ensembles_Chainage is
 
-    --Liberer la memoire allouée précédemment.
+    --Liberer la memoire allouee precedemment.
     procedure Free is
             new Ada.Unchecked_Deallocation (T_cellule, T_Ensemble);
 

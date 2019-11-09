@@ -1,0 +1,39 @@
+
+# raffinages de min_max_serie
+
+
+TB mais :
+
+* Décaler les actions d'un raffinage pour les mettre en évidence. Exemple :
+
+R1 : Comment "Afficher le plus petit et le plus grand élément d'une série d'entiers naturels"
+    Afficher la consigne
+    Saisir un premier entier
+    Si l'entier n'est pas une valeur de la série 
+	    Ecrire ('Pas de valeurs dans la série')
+    Sinon Si l'entier est le premier élément de la série 
+	    Initialiser min et max avec le premier entier
+	    Traiter les autres éléments de la série 
+	    Afficher le min et le max
+    Fin Si
+
+ Dans « R2 : Comment "Traiter les autres éléments de la série" », il manque la
+ dernière action.
+
+# drone.adb
+
+* Non terminé.
+* Il est important décrire les commentaires au fur et à mesure.
+
+
+# newton.adb
+
+* Non rendu.
+
+# puissance.adb
+
+* Non rendu.
+
+# puissance_new.adb
+
+* Non rendu.
